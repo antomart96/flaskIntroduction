@@ -1,7 +1,8 @@
-import sqlite3
-import click
 
 from flask import g, current_app
+
+import sqlite3
+import click
 
 def get_db():
     if 'db' not in g:
@@ -27,7 +28,7 @@ def init_db():
 
 @click.command('init-db')
 def init_db_command():
-    """Clear the existing dara and create new tables."""
+    """Clear the existing data and create new tables."""
     init_db()
     click.echo('Initialised the database.')
 

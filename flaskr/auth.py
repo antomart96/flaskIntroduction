@@ -66,7 +66,7 @@ def logout():
 
 def login_required(view):
     @functools.wraps(view)
-    def wrapped_view( **kwargs):
+    def wrapped_view(**kwargs):
         if g.user is None:
             return redirect(url_for('auth.login'))
         return view(**kwargs)
@@ -80,5 +80,5 @@ def load_logged_in_user():
         g.user = None
     else:
         g.user = get_db().execute(
-            'SELECT * FROM users WHERE id = ?', (user_id)       
+            'SELECT * FROM users WHERE id = ?', (user_id,)       
         ).fetchone()

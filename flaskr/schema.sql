@@ -15,5 +15,5 @@ CREATE TABLE posts(
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     title TEXT NOT NULL,
     body TEXT NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES user (id)
+    FOREIGN KEY (author_id) REFERENCES users (id)
 );
